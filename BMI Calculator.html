@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>BMI Calculator</title>
+		<link rel="stylesheet" href="css/style.css"></link>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body class="bg-dark">
+		<div class="container">
+			<div class="col-sm-6 mx-auto">
+				<div class="card">
+					<div class="card-header bg-info text-light text-center"><h4><b>BMI CALCULATOR</b><h4></div>
+					<div class="card-body text-center">
+						<form class="w-50 m-auto">
+							<div class="form-group">
+								<label>Weight :</label>
+								<input class="form-control" type="text" id="weight" placeholder="(in kg)" required>
+							</div>
+							<div class="form-group">
+								<label>Height :</label>
+								<input class="form-control" type="text" id="height" placeholder="(in ft)" required>
+							</div>
+							<div class="form-group">
+								<label>BMI Value :</label>
+								<input class="form-control" type="text" id="bmi" disabled>
+							</div>
+							<div class="form-group">
+								<button onclick="getbmi()" class="btn btn-primary" type="button">Get Value</button>
+							</div>
+						</form>
+					</div>
+					<div class="card-footer text-center">A healthy BMI ranges between 19 and 25.</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function getbmi()
+		{
+			var weight = document.getElementById("weight").value;
+			var height = document.getElementById("height").value;
+			var w = parseFloat(weight);
+			var h = parseFloat(height);
+			h = h * 12 * 0.025;
+			var bmi = w/(h*h);
+			bmi = bmi * 100;
+			bmi = Math.floor(bmi);
+			bmi = bmi / 100;
+			document.getElementById("bmi").value = bmi;
+		}
+	</script>
+</html>
